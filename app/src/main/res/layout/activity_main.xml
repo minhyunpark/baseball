@@ -1,62 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.min.baseball.MainActivity">
-
-
-
-
-    <LinearLayout
-        android:layout_width="358dp"
-        android:layout_height="305dp"
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="1"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="16dp">
+       >
 
         <EditText
-            android:id="@+id/input"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_weight="0.05"
-            android:digits="0123456789"
-            android:ems="10"
-            android:hint="3가지 숫자를 입력하세요"
-            android:maxLength="3" /><!--숫자만 입력,길이 3으로 제한 -->
+                 android:id="@+id/input"
+                 android:layout_width="match_parent"
+                 android:layout_height="64dp"
+                 android:layout_weight="0.05"
+                 android:digits="0123456789"
+                 android:ems="10"
+                 android:hint="3가지 숫자를 입력하세요"
+                 android:maxLength="3" /><!--숫자만 입력,길이 3으로 제한 -->
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="입력"
-            android:onClick="start"/>
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="입력"
+                android:onClick="start"/>
 
         <TextView
-            android:id="@+id/strike"
-            android:layout_width="167dp"
-            android:layout_height="63dp"
-            android:text="strike"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="334dp" />
+                android:id="@+id/strike"
+                android:layout_width="167dp"
+                android:layout_height="63dp"
+                android:text="strike"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="334dp" />
 
         <TextView
-            android:id="@+id/ball"
-            android:layout_width="168dp"
-            android:layout_height="63dp"
-            android:text="ball"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="397dp" />
+                android:id="@+id/ball"
+                android:layout_width="168dp"
+                android:layout_height="63dp"
+                android:text="ball"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="397dp" />
 
         <TextView
-            android:id="@+id/check"
+            android:id="@+id/check1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:text="TextView" />
+            android:text="check1" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/check2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:text="check2" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/check3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:text="check1" />
+
+</LinearLayout>

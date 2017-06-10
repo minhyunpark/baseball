@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
     int countOut;
     int[] com = new int[3];
     int[] user = new int[3];
-    TextView check;
+    TextView check1;
+    TextView check2;
+    TextView check3;
+
     TextView strike;
     TextView ball;
     EditText input;
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        check = (TextView) findViewById(R.id.check);
+        check1 = (TextView) findViewById(R.id.check1);
+        check2 = (TextView) findViewById(R.id.check2);
+        check3 = (TextView) findViewById(R.id.check3);
         strike = (TextView) findViewById(R.id.strike);
         ball = (TextView) findViewById(R.id.ball);
         input = (EditText) findViewById(R.id.input);
@@ -88,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void start(View v) {
         makingNum();
-        check.setText(Integer.toString(user[0]));
-        /*check.setText(Integer.toString(user[1]));
-        check.setText(Integer.toString(user[2]));*/
+        check1.setText(Integer.toString(user[0]));
+        check2.setText(Integer.toString(user[1]));
+        check3.setText(Integer.toString(user[2]));
         userNum();
         checkingNum();
 

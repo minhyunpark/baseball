@@ -10,10 +10,9 @@
                  android:layout_width="match_parent"
                  android:layout_height="64dp"
                  android:layout_weight="0.05"
-                 android:digits="0123456789"
                  android:ems="10"
                  android:hint="3가지 숫자를 입력하세요"
-                 android:maxLength="3" /><!--숫자만 입력,길이 3으로 제한 -->
+                 android:maxLength="3" /><!--길이 3으로 제한 -->
 
         <Button
                 android:id="@+id/button"

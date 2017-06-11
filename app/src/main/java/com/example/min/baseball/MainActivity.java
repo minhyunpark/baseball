@@ -59,17 +59,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    //숫자생성,중복제거
 
-    public void userNum() {
-
-
-        for (int i = 0; i < 3; i++) {
-            user[i] = input.getText().charAt(i);
+    public void userNum() throws Exception{
 
 
+        for (int i = 0; i < 3; i++){
+        if(input.getText().charAt(i)<=47 || input.getText().charAt(i)>=58) {
+
+            throw new Exception("오류발생 : 1~9 사이의 숫자를 입력하세요");
+        }
+        user[i] = input.getText().charAt(i)-48;//char to dec ASCII
+        }
+        if (user[0] == user[1] || user[1] == user[2] || user[2] == user[0]) {
+            throw new Exception("오류발생 : 서로 다른 숫자를 입력하세요");
         }
 
     }
+    //사용자 숫자 입력부분
+
 
     public void checkingNum() {
 
@@ -90,14 +98,35 @@ public class MainActivity extends AppCompatActivity {
         ball.setText(Integer.toString(countBall));
 
     }
+    //생성된 숫자와 사용자 숫자 비교
 
-    public void start(View v) {
+
+
+
+
+
+    public void start(View v)  {
+        countStrike = 0;
+        countBall = 0;
+
         makingNum();
-        check1.setText(Integer.toString(user[0]));
-        check2.setText(Integer.toString(user[1]));
-        check3.setText(Integer.toString(user[2]));
-        userNum();
-        checkingNum();
+
+
+
+
+        check1.setText(Integer.toString(com[0]));
+        check2.setText(Integer.toString(com[1]));
+        check3.setText(Integer.toString(com[2]));
+
+        try {
+            userNum();
+
+
+            checkingNum();
+        }catch(Exception e){
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
 
 
     }

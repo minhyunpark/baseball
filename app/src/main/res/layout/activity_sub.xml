@@ -1,0 +1,66 @@
+
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+    >
+
+<EditText
+    android:id="@+id/input"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_weight="0.05"
+    android:ems="10"
+    android:hint="3가지 숫자를 입력하세요"
+    android:maxLength="3" /><!--길이 3으로 제한 -->
+
+    <Button android:id="@+id/button" android:layout_width="176dp"
+    android:layout_height="wrap_content"
+    android:text="입력"
+    android:onClick="start"/>
+
+<TextView
+    android:id="@+id/strike"
+    android:layout_width="167dp"
+    android:layout_height="63dp"
+    android:text="strike"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="334dp" />
+
+<TextView
+    android:id="@+id/ball"
+    android:layout_width="168dp"
+    android:layout_height="63dp"
+    android:text="ball"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="397dp" />
+
+<TextView
+    android:id="@+id/check1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.75"
+    android:text="check1" />
+
+<TextView
+    android:id="@+id/check2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.75"
+    android:text="check2" />
+
+<TextView
+    android:id="@+id/check3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.75"
+    android:text="check1" />
+
+<Button
+    android:id="@+id/btn_next"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="화면전환"/>
+
+</LinearLayout>

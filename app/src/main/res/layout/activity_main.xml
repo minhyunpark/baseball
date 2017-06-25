@@ -5,12 +5,19 @@
     android:orientation="vertical"
     >
 
-        <Button
-            android:id="@+id/change"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="시작"
-            android:onClick="changeView"/>
+    <Button
+        android:id="@+id/change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="시작"
+        android:onClick="ChangeView"/>
+
+    <Button
+        android:id="@+id/introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="게임설명"
+        android:onClick="IntroduceGame"/>
 
 
 </LinearLayout>

@@ -1,6 +1,10 @@
 package com.example.min.baseball;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +33,7 @@ public class SubActivity extends AppCompatActivity {
     TextView ball;
     EditText input;
     Button button;
+    Context context = this;
 
 
     @Override
@@ -44,16 +49,28 @@ public class SubActivity extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         button = (Button) findViewById(R.id.button);
 
-       // Intent intent = getIntent();//mainIntent 객체 받기
-        com[0] = getIntent().getIntExtra("first",0);
-        com[1] = getIntent().getIntExtra("second",0);
-        com[2] = getIntent().getIntExtra("third",0);
+        // Intent intent = getIntent();//mainIntent 객체 받기
+        com[0] = getIntent().getIntExtra("first", 0);
+        com[1] = getIntent().getIntExtra("second", 0);
+        com[2] = getIntent().getIntExtra("third", 0);
+
 
     }
 
+    public void makingNum() {
 
+        while (true) {
 
+            for (int j = 0; j <= 2; j++) {
+                com[j] = (int) (Math.random() * 9) + 1;// typecasting
 
+            }
+            if (com[0] != com[1] && com[1] != com[2] && com[2] != com[0])
+                break;
+        }
+
+    }
+    //숫자생성,중복제거
 
 
     public void userNum() throws Exception {
@@ -89,36 +106,69 @@ public class SubActivity extends AppCompatActivity {
             }
         }
         countOut += 1;
-        strike.setText(Integer.toString(countStrike));
-        ball.setText(Integer.toString(countBall));
+
+
+        strike.setText(String.valueOf("Strike  " + countStrike));
+        ball.setText(String.valueOf("Ball  " + countBall));
+        Toast.makeText(SubActivity.this, "strike" + countStrike + " ball" + countBall, Toast.LENGTH_LONG).show();
 
     }
     //생성된 숫자와 사용자 숫자 비교
 
 
-
-
-    public void start (View v){
-
-
-
+    public void start(View v) {
 
 
         check1.setText(Integer.toString(com[0]));
         check2.setText(Integer.toString(com[1]));
-        check3.setText(Integer.toString(com[2]));
+        check3.setText(Integer.toString(com[2]));//숫자 확인용
 
         try {
 
             userNum();
             checkingNum();
-            if(countStrike==3){
-                Toast.makeText(SubActivity.this, "YOU WIN", Toast.LENGTH_LONG).show();
+            if (countStrike == 3) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                    // 제목
+                    alertDialogBuilder.setTitle("3strike YOU WIN");
+
+                    // AlertDialog 셋팅
+                    alertDialogBuilder
+                            .setMessage("다시 하시겠습니까?")
+                            .setCancelable(false)
+                            //오른쪽
+                            .setPositiveButton("종료", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            // 프로그램을 종료한다
+                                            finishAffinity();//종료하기 finish는 안됨
+                                        }
+                                    })
+                            //왼쪽
+                            .setNegativeButton("재시작", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel(); // 다이얼로그를 취소
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);//화면전환
+                                }
+
+                            });
+
+
+                    // 다이얼로그 객체 생성
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // 다이얼로그 부르기
+                    alertDialog.show();
+
+
+
+
             }
+
+
             countStrike = 0;
             countBall = 0;
-
-
         } catch (Exception e) {
             Toast.makeText(SubActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -126,6 +176,7 @@ public class SubActivity extends AppCompatActivity {
 
     }
 }
+
 
 
 
@@ -220,5 +271,4 @@ public class SubActivity extends AppCompatActivity {
 
 }
 */
-
 

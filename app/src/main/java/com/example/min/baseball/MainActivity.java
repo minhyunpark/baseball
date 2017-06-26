@@ -8,20 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
     Button button1;
     Button button2;
-    int[] make = new int[3];
+
     Context context = this;
 
     @Override
@@ -31,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         button1 = (Button) findViewById(R.id.change);
         button2 = (Button) findViewById(R.id.introduce);
-
+        setContentView(R.layout.activity_main);//이미지view 불러오기
 
     }
 

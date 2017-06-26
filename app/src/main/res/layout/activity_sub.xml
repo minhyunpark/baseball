@@ -1,42 +1,70 @@
-
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@drawable/image"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/input"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_weight="0.05"
-        android:ems="10"
-        android:hint="3가지 숫자를 입력하세요"
-        android:maxLength="3" /><!--길이 3으로 제한 -->
+        android:layout_height="72dp"
+        android:orientation="horizontal">
 
-    <Button android:id="@+id/button" android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:text="입력"
-        android:onClick="start"/>
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_weight="0.05"
+            android:ems="10"
+            android:hint="3가지 숫자를 입력하세요"
+            android:typeface="monospace"
+            android:maxLength="3" /><!--길이 3으로 제한 -->
 
-    <TextView
-        android:id="@+id/strike"
-        android:layout_width="167dp"
-        android:layout_height="63dp"
-        android:text="strike"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="334dp"
-        tools:text="strike" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:onClick="start"
+            android:typeface="monospace"
+            android:textSize="8pt"
+            android:textColor="#000000"
 
-    <TextView
-        android:id="@+id/ball"
-        android:layout_width="168dp"
-        android:layout_height="63dp"
-        android:text="ball"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="397dp"
-        tools:text="ball" />
+            android:text="입력" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/strike"
+            android:layout_width="167dp"
+            android:layout_height="63dp"
+            android:layout_weight="0.46"
+            android:text="strike"
+            android:textColor="#000000"
+            android:textSize="10pt"
+            android:typeface="monospace"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="334dp"
+            tools:text="strike" />
+
+        <TextView
+            android:id="@+id/ball"
+            android:layout_width="167dp"
+            android:layout_height="63dp"
+            android:text="ball"
+            android:textColor="#000000"
+            android:textSize="10pt"
+            android:typeface="monospace"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="334dp"
+
+            tools:text="ball" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/check1"

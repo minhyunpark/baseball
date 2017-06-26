@@ -3,7 +3,6 @@ package com.example.min.baseball;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 
 public class SubActivity extends AppCompatActivity {
@@ -31,8 +29,10 @@ public class SubActivity extends AppCompatActivity {
 
     TextView strike;
     TextView ball;
+
     EditText input;
     Button button;
+
     Context context = this;
 
 
@@ -40,19 +40,21 @@ public class SubActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);//xml 연결
+        setContentView(R.layout.activity_sub);//이미지view 불러오기
 
         check1 = (TextView) findViewById(R.id.check1);
         check2 = (TextView) findViewById(R.id.check2);
         check3 = (TextView) findViewById(R.id.check3);
         strike = (TextView) findViewById(R.id.strike);
         ball = (TextView) findViewById(R.id.ball);
+
         input = (EditText) findViewById(R.id.input);
         button = (Button) findViewById(R.id.button);
 
-        // Intent intent = getIntent();//mainIntent 객체 받기
+
         com[0] = getIntent().getIntExtra("first", 0);
         com[1] = getIntent().getIntExtra("second", 0);
-        com[2] = getIntent().getIntExtra("third", 0);
+        com[2] = getIntent().getIntExtra("third", 0);//intent 값 받기
 
 
     }
@@ -110,7 +112,7 @@ public class SubActivity extends AppCompatActivity {
 
         strike.setText(String.valueOf("Strike  " + countStrike));
         ball.setText(String.valueOf("Ball  " + countBall));
-        Toast.makeText(SubActivity.this, "strike" + countStrike + " ball" + countBall, Toast.LENGTH_LONG).show();
+        Toast.makeText(SubActivity.this,  countStrike + "strike  " +  countBall + "ball  "+ "  count" +countOut, Toast.LENGTH_LONG).show();
 
     }
     //생성된 숫자와 사용자 숫자 비교
@@ -131,7 +133,7 @@ public class SubActivity extends AppCompatActivity {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
                     // 제목
-                    alertDialogBuilder.setTitle("3strike YOU WIN");
+                    alertDialogBuilder.setTitle("3strike YOU WIN\n" + countOut+"번만에 맞추셨습니다");
 
                     // AlertDialog 셋팅
                     alertDialogBuilder

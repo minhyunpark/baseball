@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 
-
-
-
 public class MainActivity extends AppCompatActivity {
 
     Button button1;
@@ -27,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         button1 = (Button) findViewById(R.id.change);
         button2 = (Button) findViewById(R.id.introduce);
-        setContentView(R.layout.activity_main);//이미지view 불러오기
+
 
     }
 
@@ -51,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.introduce://버튼이 눌러졌을때 돌아가게 하는 방법
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder.setTitle("게임 방법");// 제목셋팅
+                alertDialogBuilder.setTitle("게임 방법");// 제목
 
                 // AlertDialog 셋팅
                 alertDialogBuilder

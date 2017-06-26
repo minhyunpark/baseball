@@ -40,31 +40,22 @@
         android:weightSum="1">
 
         <TextView
-            android:id="@+id/strike"
-            android:layout_width="167dp"
+            android:id="@+id/view"
+            android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:layout_weight="0.46"
-            android:text="strike"
+            android:layout_weight="0.66"
             android:textColor="#000000"
-            android:textSize="10pt"
+            android:textSize="8pt"
             android:typeface="monospace"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="334dp"
-            tools:text="strike" />
+            tools:layout_editor_absoluteY="334dp" />
 
-        <TextView
-            android:id="@+id/ball"
-            android:layout_width="167dp"
-            android:layout_height="63dp"
-            android:text="ball"
-            android:textColor="#000000"
-            android:textSize="10pt"
-            android:typeface="monospace"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="334dp"
-
-            tools:text="ball" />
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="234dp" />
 
     <TextView
         android:id="@+id/check1"

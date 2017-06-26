@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +28,8 @@ public class SubActivity extends AppCompatActivity {
     TextView check2;
     TextView check3;
 
-    TextView strike;
-    TextView ball;
+    TextView view;
+
 
     EditText input;
     Button button;
@@ -36,17 +37,18 @@ public class SubActivity extends AppCompatActivity {
     Context context = this;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);//xml 연결
-        setContentView(R.layout.activity_sub);//이미지view 불러오기
+
 
         check1 = (TextView) findViewById(R.id.check1);
         check2 = (TextView) findViewById(R.id.check2);
         check3 = (TextView) findViewById(R.id.check3);
-        strike = (TextView) findViewById(R.id.strike);
-        ball = (TextView) findViewById(R.id.ball);
+        view = (TextView) findViewById(R.id.view);
+
 
         input = (EditText) findViewById(R.id.input);
         button = (Button) findViewById(R.id.button);
@@ -55,6 +57,8 @@ public class SubActivity extends AppCompatActivity {
         com[0] = getIntent().getIntExtra("first", 0);
         com[1] = getIntent().getIntExtra("second", 0);
         com[2] = getIntent().getIntExtra("third", 0);//intent 값 받기
+
+
 
 
     }
@@ -110,8 +114,8 @@ public class SubActivity extends AppCompatActivity {
         countOut += 1;
 
 
-        strike.setText(String.valueOf("Strike  " + countStrike));
-        ball.setText(String.valueOf("Ball  " + countBall));
+        view.setText(String.valueOf("Strike  " + countStrike+ "  Ball  " + countBall + "  count  " +countOut));
+
         Toast.makeText(SubActivity.this,  countStrike + "strike  " +  countBall + "ball  "+ "  count" +countOut, Toast.LENGTH_LONG).show();
 
     }
@@ -142,7 +146,6 @@ public class SubActivity extends AppCompatActivity {
                             //오른쪽
                             .setPositiveButton("종료", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-                                            // 프로그램을 종료한다
                                             finishAffinity();//종료하기 finish는 안됨
                                         }
                                     })
@@ -155,8 +158,6 @@ public class SubActivity extends AppCompatActivity {
                                 }
 
                             });
-
-
                     // 다이얼로그 객체 생성
                     AlertDialog alertDialog = alertDialogBuilder.create();
 
@@ -167,15 +168,11 @@ public class SubActivity extends AppCompatActivity {
 
 
             }
-
-
             countStrike = 0;
             countBall = 0;
         } catch (Exception e) {
             Toast.makeText(SubActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
-
     }
 }
 

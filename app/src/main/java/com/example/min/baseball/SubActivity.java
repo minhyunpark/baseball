@@ -14,9 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
-
-
 public class SubActivity extends AppCompatActivity {
 
     int countStrike;
@@ -27,9 +24,7 @@ public class SubActivity extends AppCompatActivity {
     TextView check1;
     TextView check2;
     TextView check3;
-
     TextView view;
-
 
     EditText input;
     Button button;
@@ -37,12 +32,10 @@ public class SubActivity extends AppCompatActivity {
     Context context = this;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);//xml 연결
-
 
         check1 = (TextView) findViewById(R.id.check1);
         check2 = (TextView) findViewById(R.id.check2);
@@ -53,13 +46,9 @@ public class SubActivity extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         button = (Button) findViewById(R.id.button);
 
-
         com[0] = getIntent().getIntExtra("first", 0);
         com[1] = getIntent().getIntExtra("second", 0);
         com[2] = getIntent().getIntExtra("third", 0);//intent 값 받기
-
-
-
 
     }
 
@@ -80,7 +69,6 @@ public class SubActivity extends AppCompatActivity {
 
 
     public void userNum() throws Exception {
-
 
         for (int i = 0; i < 3; i++) {
             if (input.getText().charAt(i) <= 47 || input.getText().charAt(i) >= 58) {
@@ -114,9 +102,8 @@ public class SubActivity extends AppCompatActivity {
         countOut += 1;
 
 
-        view.setText(String.valueOf("Strike  " + countStrike+ "  Ball  " + countBall + "  count  " +countOut));
-
-        Toast.makeText(SubActivity.this,  countStrike + "strike  " +  countBall + "ball  "+ "  count" +countOut, Toast.LENGTH_LONG).show();
+        view.setText(String.valueOf("Strike  " + countStrike + "  Ball  " + countBall + "  count  " + countOut));
+        Toast.makeText(SubActivity.this, countStrike + "strike  " + countBall + "ball  " + "  count" + countOut, Toast.LENGTH_LONG).show();
 
     }
     //생성된 숫자와 사용자 숫자 비교
@@ -133,38 +120,37 @@ public class SubActivity extends AppCompatActivity {
 
             userNum();
             checkingNum();
+
             if (countStrike == 3) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
-                    // 제목
-                    alertDialogBuilder.setTitle("3strike YOU WIN\n" + countOut+"번만에 맞추셨습니다");
+                // 제목
+                alertDialogBuilder.setTitle("3strike YOU WIN\n" + countOut + "번만에 맞추셨습니다");
 
-                    // AlertDialog 셋팅
-                    alertDialogBuilder
-                            .setMessage("다시 하시겠습니까?")
-                            .setCancelable(false)
-                            //오른쪽
-                            .setPositiveButton("종료", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            finishAffinity();//종료하기 finish는 안됨
-                                        }
-                                    })
-                            //왼쪽
-                            .setNegativeButton("재시작", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel(); // 다이얼로그를 취소
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);//화면전환
-                                }
+                // AlertDialog 셋팅
+                alertDialogBuilder
+                        .setMessage("다시 하시겠습니까?")
+                        .setCancelable(false)
+                        //오른쪽
+                        .setPositiveButton("종료", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finishAffinity();//종료하기 finish는 안됨
+                            }
+                        })
+                        //왼쪽
+                        .setNegativeButton("재시작", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel(); // 다이얼로그를 취소
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);//화면전환
+                            }
 
-                            });
-                    // 다이얼로그 객체 생성
-                    AlertDialog alertDialog = alertDialogBuilder.create();
+                        });
+                // 다이얼로그 객체 생성
+                AlertDialog alertDialog = alertDialogBuilder.create();
 
-                    // 다이얼로그 부르기
-                    alertDialog.show();
-
-
+                // 다이얼로그 부르기
+                alertDialog.show();
 
 
             }
